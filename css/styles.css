@@ -1,8 +1,26 @@
 .result {
+  margin: 0 auto;
+  width: 70%;
   display: none;
   text-align: center;
 }
 
+.panel {
+  width: 70%;
+  margin: 0 auto;
+}
+
+input[type=text] {
+  width: 50%;
+}
+
 .result-text {
   font-weight: bold;
+}
+
+/* responsive styles */
+@media screen and (max-width: 550px) {
+  .panel, .result {
+    width: 100%;
+  }
 }

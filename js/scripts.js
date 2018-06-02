@@ -69,6 +69,7 @@ $(document).ready(function() {
   });
 
   $("input").keyup(function() {
+    $(".result").hide();
     if (onlyNumbers(this) && allFieldsFilled()) {
       enableBtn();
     } else {

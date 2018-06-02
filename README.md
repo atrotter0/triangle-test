@@ -6,7 +6,7 @@
 
 ## Description
 
-Add the lengths of each side of a triangle to determine what kind of triangle it is!
+Check the lengths of each side of a triangle to determine what kind of triangle it is!
 
 ## Setup/Contribution Requirements
 

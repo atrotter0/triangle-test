@@ -6,19 +6,19 @@ function disableBtn() {
 
 function checkTriangle(sideA, sideB, sideC) {
   if (isIsosceles(sideA, sideB, sideC)) {
-    console.log("iso");
+    showResult("Isosceles");
   } else if (isEquilateral(sideA, sideB, sideC)) {
-    console.log("eq");
+    showResult("Equilateral");
   } else if (isScalene(sideA, sideB, sideC)) {
-    console.log("scale");
+    showResult("Scalene");
   } else {
-    console.log("Not a triangle");
+    showResult("Not a triangle!");
   }
 }
 
 // two sides equal
 function isIsosceles(a, b, c) {
-  if (a === b && b !== c)return true;
+  if ((a === b && b !== c) || (a === c && b !== c) || (a !== b && b === c)) return true;
 }
 
 // all sides equal
@@ -31,15 +31,20 @@ function isScalene(a, b, c) {
   if (a !== b && b !== c) return true;
 }
 
+function showResult(triangle) {
+  $(".result").fadeIn(800);
+  $(".result-text").text(triangle);
+}
+
 function onlyNumbers(element) {
   if ($(element).val().match(/[0-9]/)) return true;
 }
 
 function allFieldsFilled() {
-  if (countFields() === NUMBER_OF_FIELDS) return true;
+  if (checkForValues() === NUMBER_OF_FIELDS) return true;
 }
 
-function countFields() {
+function checkForValues() {
   var count = 0;
   $("input[type=text]").each(function(index, item) {
     if ($(item).val() > 0) count++;

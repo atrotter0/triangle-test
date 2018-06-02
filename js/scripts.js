@@ -32,10 +32,7 @@ function isScalene(a, b, c) {
 }
 
 function onlyNumbers(element) {
-  // add regex to check for only numbers
-  // var value = $(element).val();
-  // var onlyNumbers = ;
-  // if (value === onlyNumbers) return true;
+  if ($(element).val().match(/[0-9]/)) return true;
 }
 
 function allFieldsFilled() {
@@ -45,16 +42,12 @@ function allFieldsFilled() {
 function countFields() {
   var count = 0;
   $("input[type=text]").each(function(index, item) {
-    console.log(item);
-    console.log(index);
     if ($(item).val() > 0) count++;
   });
-  console.log("Count: " + count);
   return count;
 }
 
 function enableBtn() {
-  console.log("enabling btn...");
   $("#submit").removeAttr("disabled", false);
 }
 

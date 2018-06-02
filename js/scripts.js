@@ -1,4 +1,4 @@
-function calculateResults(sideA, sideB, sideC) {
+function checkTriangle(sideA, sideB, sideC) {
   if (isIsosceles(sideA, sideB, sideC)) {
     console.log("iso");
   } else if (isEquilateral(sideA, sideB, sideC)) {
@@ -10,14 +10,17 @@ function calculateResults(sideA, sideB, sideC) {
   }
 }
 
+// two sides equal
 function isIsosceles(a, b, c) {
   if (a === b && b !== c)return true;
 }
 
+// all sides equal
 function isEquilateral(a, b, c) {
   if (a === b && a === c) return true;
 }
 
+// no sides equal
 function isScalene(a, b, c) {
   if (a !== b && b !== c) return true;
 }
@@ -29,6 +32,6 @@ $(document).ready(function() {
     var sideA = parseInt($("#sideA").val());
     var sideB = parseInt($("#sideB").val());
     var sideC = parseInt($("#sideC").val());
-    calculateResults(sideA, sideB, sideC);
+    checkTriangle(sideA, sideB, sideC);
   });
 });

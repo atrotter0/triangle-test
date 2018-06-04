@@ -3,14 +3,16 @@ function disableBtn() {
 }
 
 function checkTriangle(sideA, sideB, sideC) {
-  if (isIsosceles(sideA, sideB, sideC)) {
+  if (notATriangle(sideA, sideB, sideC)) {
+    showResult("Not a triangle!");
+  } else if (isIsosceles(sideA, sideB, sideC)) {
     showResult("Isosceles");
   } else if (isEquilateral(sideA, sideB, sideC)) {
     showResult("Equilateral");
   } else if (isScalene(sideA, sideB, sideC)) {
     showResult("Scalene");
   } else {
-    showResult("Not a triangle!");
+    alert("You broke it...");
   }
 }
 
@@ -27,6 +29,11 @@ function isEquilateral(a, b, c) {
 // no sides equal
 function isScalene(a, b, c) {
   if (a !== b && b !== c) return true;
+}
+
+// sum of any two sides <= third side
+function notATriangle(a, b, c) {
+  if ((a + b) <= c || (a + c) <= b || (b + c) <= a) return true;
 }
 
 function showResult(triangle) {

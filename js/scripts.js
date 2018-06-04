@@ -1,5 +1,3 @@
-const NUMBER_OF_FIELDS = 3;
-
 function disableBtn() {
   $("#submit").prop("disabled", true);
 }
@@ -41,15 +39,19 @@ function onlyNumbers(element) {
 }
 
 function allFieldsFilled() {
-  if (checkForValues() === NUMBER_OF_FIELDS) return true;
-}
-
-function checkForValues() {
   var count = 0;
+  var numberofFields = 0;
   $("input[type=text]").each(function(index, item) {
     if ($(item).val() > 0) count++;
+
+    numberofFields++;
   });
-  return count;
+  var match = formFilled(count, numberofFields);
+  return match;
+}
+
+function formFilled(count, inputCount) {
+  if (count === inputCount) return true;
 }
 
 function enableBtn() {
